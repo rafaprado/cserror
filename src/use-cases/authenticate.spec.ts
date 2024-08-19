@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, test } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 import {  hash } from 'bcryptjs';
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository';
 
@@ -10,8 +10,8 @@ let sut: AuthenticateUseCase
 
 describe('Authenticate UseCase',  () => {
   beforeEach(() => {
-    const usersRepository = new InMemoryUsersRepository()
-    const sut = new AuthenticateUseCase(usersRepository)
+    usersRepository = new InMemoryUsersRepository()
+    sut = new AuthenticateUseCase(usersRepository)
   })
 
   it('Should to able to authenticate', async() => {

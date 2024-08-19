@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, test } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { hash } from 'bcryptjs';
 import { InMemoryUsersRepository } from '@/repositories/in-memory/in-memory-users-repository';
 import { GetProfileUseCase } from './get-user-profile';
@@ -10,8 +10,8 @@ let sut: GetProfileUseCase
 describe('Get User Profile UseCase',  () => {
   
   beforeEach(() => {
-    const usersRepository = new InMemoryUsersRepository()
-    const sut = new GetProfileUseCase(usersRepository)
+    usersRepository = new InMemoryUsersRepository()
+    sut = new GetProfileUseCase(usersRepository)
   })
 
   it('Should to able to get user profile', async() => {
